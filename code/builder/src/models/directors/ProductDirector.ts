@@ -1,31 +1,28 @@
-import { ElectronicBuilder } from "../builders/ElectronicBuilder";
+import { ClothingBuilder } from "../builders/ClothingBuilder";
 import { FurnitureBuilder } from "../builders/FurnitureBuilder";
 import { ShoeBuilder } from "../builders/ShoeBuilder";
 
 export class ProductDirector {
-  private electronicBuilder: ElectronicBuilder;
+  private clothingBuilder: ClothingBuilder;
   private furnitureBuilder: FurnitureBuilder;
   private shoeBuilder: ShoeBuilder;
 
   constructor() {
-    this.electronicBuilder = new ElectronicBuilder();
+    this.clothingBuilder = new ClothingBuilder();
     this.furnitureBuilder = new FurnitureBuilder();
     this.shoeBuilder = new ShoeBuilder();
   }
 
-  createSmartphone() {
-    return this.electronicBuilder
-      .setBasicInfo("456", "iPhone 12", "Electronics")
-      .setDescription("Apple iPhone 12")
-      .setPrice(499.99)
-      .setCondition("Like New")
-      .setModelNumber("A2172")
-      .setBatteryLife("85% capacity")
-      .setTechnicalSpecs({
-        screen: "6.1 inch OLED",
-        storage: "128GB",
-        processor: "A14 Bionic",
-      })
+  createDress() {
+    return this.clothingBuilder
+      .setColor("Red")
+      .setSize("M")
+      .setModel("Evening Gown")
+      .setDimensions(90, 70, 95)
+      .setMaterial(["Silk", "Polyester"])
+      .setGenre("Women")
+      .setRecommendedFor("Formal Events")
+      .setWeather("Warm")
       .build();
   }
 
