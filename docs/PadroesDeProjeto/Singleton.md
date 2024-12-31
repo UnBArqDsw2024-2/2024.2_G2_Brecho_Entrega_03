@@ -101,6 +101,58 @@ As estruturas, conforme definido no tópico [Estrutura](#estrutura), são aplica
 
 ### Desenvolvimento do Código
 
+O desenvolvimento do código para a aplicação prática do padrão de projeto *Singleton* foi feito de acordo com a [estrutura](#estrutura) apresentada, foram feitas modificações para se adequar as convenções da linguagem. Foi utilizada a linguagem de programação Python e para executá-lo, deve-se seguir os passos a seguir:
+
+1. Entrar na pasta `code/singleton/`
+
+2. Ter instalado o interpretador python (comando *sudo apt install python3*)
+
+3. Executar o script com o comando *python3 singleton.py*
+
+O resultado da execução dos comandos acima deve ser uma saída contendo três vezes a palavra `True`, significando que os três objetos criados são a mesma instância.
+
+<center>
+<figcaption>
+
+**Script 1** - Classe referente ao padrão singleton.
+
+</figcaption>
+</center>
+
+```python
+class Singleton:
+    __instance = None
+
+    def __new__(cls):
+        if cls.__instance is None:
+            cls.__instance = super(Singleton, cls).__new__(cls)
+        return cls.__instance
+
+    @classmethod
+    def get_instance(cls):
+        if cls.__instance is None:
+            cls.__instance = cls()
+        return cls.__instance
+
+
+if __name__ == "__main__":
+    db1 = Singleton.get_instance()
+    db2 = Singleton()
+    db3 = Singleton.get_instance()
+
+    print(db1 is db2)
+    print(db1 is db3)
+    print(db2 is db3)
+```
+
+<center>
+<figcaption>
+
+**Fonte:** <a href="https://github.com/eduard0803" target="_blank">Eduardo Belarmino</a>, 2024.
+
+</figcaption>
+</center>
+
 <!-- O desenvolvimento do código para aplicação prática do padrão de projeto *Builder* foi feito de acordo com o [Diagrama](#elaboração-do-diagrama) apresentado. Foi utilizada a linguagem de programação Typescript e, para executá-lo, deve-se seguir os passos a seguir:
 
 1. Entrar na pasta code/builder/src
@@ -189,4 +241,5 @@ Para fins de visualização sem execução de código ou utilização de linhas 
 
 | Versão | Data       | Descrição            | Autor(es)                                        | Revisor(es) | Resultado da Revisão |
 | ------ | ---------- | -------------------- | ------------------------------------------------ | ----------- | -------------------- |
-| `1.0`  | 30/12/2024 | Criação do documento | [Lucas Spinosa](https://github.com/LucasSpinosa) | ---         | ---        
+| `1.0`  | 30/12/2024 | Criação do documento | [Lucas Spinosa](https://github.com/LucasSpinosa) | --- | --- |
+| `1.1`  | 31/12/2024 | Adição do código de exemplo | [Eduardo Belarmino](https://github.com/eduard0803) | --- | --- |
