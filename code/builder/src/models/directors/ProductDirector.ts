@@ -15,6 +15,10 @@ export class ProductDirector {
 
   createDress() {
     return this.clothingBuilder
+      .setBasicInfo("CL001", "Formal Red Dress", "Clothing")
+      .setDescription("Incredible fancy red dress for any formal event!")
+      .setPrice(2999.99)
+      .setCondition("Excellent")
       .setColor("Red")
       .setSize("M")
       .setModel("Evening Gown")
