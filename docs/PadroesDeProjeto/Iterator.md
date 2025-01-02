@@ -15,7 +15,7 @@ O *Iterator* é um padrão já implementado por determinadas linguagens de progr
 <center>
 <figcaption>
 
-**Fonte:** <a href="https://github.com/eduard0803" target="_blank">Eduardo Belarmino</a>, 2024.
+**Fonte:** <a href="https://github.com/eduard0803" target="_blank">Eduardo Belarmino</a>, 2025.
 
 </figcaption>
 </center>
@@ -46,7 +46,7 @@ A estrutura de uma classe Iterator tem:
 
 <figcaption>
 
-**Fonte:** <a href="https://refactoring.guru/design-patterns/iterator" target="_blank">Refactoring Guru</a>, 2024.
+**Fonte:** <a href="https://refactoring.guru/design-patterns/iterator" target="_blank">Refactoring Guru</a>, 2025.
 
 </figcaption>
 </center>
@@ -186,7 +186,7 @@ Para fins de visualização sem execução de código ou utilização de linhas 
 
 > Gamma, E., Helm, R., Johnson, R., & Vlissides, J. (1994). Design Patterns: Elements of Reusable Object-Oriented Software. Addison-Wesley.
 
-> Iterator. Refactoring Guru, 2024. Disponível em: <https://refactoring.guru/design-patterns/iterator>. Acesso em: 30 dez. de 2024.
+> Iterator. Refactoring Guru, 2024. Disponível em: <https://refactoring.guru/design-patterns/iterator>. Acesso em: 02 jan. de 2025.
 
 ## Histórico de Versão
 
