@@ -105,27 +105,65 @@ O desenvolvimento do código para a aplicação prática do padrão de projeto *
 
 1. Entrar na pasta `code/singleton/`
 
-2. Ter instalado o interpretador python (comando *sudo apt install python3*)
+2. Ter instalado o *docker* e o *docker compose*
 
-3. Executar o script com o comando *python3 singleton.py*
+3. Executar o script com o comando *docker compose up --build*
 
-O resultado da execução dos comandos acima deve ser uma saída contendo três vezes a palavra `True`, significando que os três objetos criados são a mesma instância.
+O resultado da execução dos comandos acima deve ser uma saída contendo três vezes a palavra `True`, significando que os três objetos criados são a mesma instância, conforme a imagem abaixo.
 
 <center>
 <figcaption>
 
-**Script 1** - Classe referente ao padrão singleton.
+**Figura 2** - Resultado da execução do script.
+
+</figcaption>
+</center>
+
+![Resultado singleton](../Images/singleton-resultado.png)
+
+<center>
+<figcaption>
+
+**Fonte:** <a href="https://github.com/eduard0803" target="_blank">Eduardo Belarmino</a>, 2025.
+
+**Script 1** - Classe referente ao padrão singleton para estabelecer uma conexão com o banco de dados.
 
 </figcaption>
 </center>
 
 ```python
-class Singleton:
-    __instance = None
+import os
+
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+
+
+DB_USER = os.getenv("DB_USER")
+DB_PASS = os.getenv("DB_PASS")
+DB_HOST = os.getenv("DB_HOST")
+DB_PORT = os.getenv("DB_PORT")
+DB_BASE = os.getenv("DB_BASE")
+
+SQLALCHEMY_DATABASE_URL = f"postgresql://{DB_USER}:{DB_PASS}@{DB_HOST}:{DB_PORT}/{DB_BASE}"
+
+
+class Connect_DB:
+    __engine = create_engine( 
+        SQLALCHEMY_DATABASE_URL,
+        connect_args={
+            "options" : "-c timezone=utc"
+        }
+    )
+
+    __session_local = sessionmaker(autocommit=False, autoflush=False, bind=__engine)
+
+    __base = declarative_base()
+    __instance = __session_local()
 
     def __new__(cls):
         if cls.__instance is None:
-            cls.__instance = super(Singleton, cls).__new__(cls)
+            cls.__instance = super(Connect_DB, cls).__new__(cls)
         return cls.__instance
 
     @classmethod
@@ -133,22 +171,42 @@ class Singleton:
         if cls.__instance is None:
             cls.__instance = cls()
         return cls.__instance
-
-
-if __name__ == "__main__":
-    db1 = Singleton.get_instance()
-    db2 = Singleton()
-    db3 = Singleton.get_instance()
-
-    print(db1 is db2)
-    print(db1 is db3)
-    print(db2 is db3)
 ```
+<center>
+<figcaption>
+
+**Fonte:** <a href="https://github.com/eduard0803" target="_blank">Eduardo Belarmino</a>, 2025.
+
+</figcaption>
+</center>
 
 <center>
 <figcaption>
 
-**Fonte:** <a href="https://github.com/eduard0803" target="_blank">Eduardo Belarmino</a>, 2024.
+**Script 2** - Criação dos objetos para a prova de conceito.
+
+</figcaption>
+</center>
+
+```python
+from connect_db import Connect_DB
+
+
+if __name__ == "__main__":
+
+    db1 = Connect_DB.get_instance()
+    db2 = Connect_DB()
+    db3 = Connect_DB.get_instance()
+
+    print("\nSINGLETON")
+    print(db1 is db2)
+    print(db1 is db3)
+    print(db2 is db3)
+```
+<center>
+<figcaption>
+
+**Fonte:** <a href="https://github.com/eduard0803" target="_blank">Eduardo Belarmino</a>, 2025.
 
 </figcaption>
 </center>
@@ -243,3 +301,4 @@ Para fins de visualização sem execução de código ou utilização de linhas 
 | ------ | ---------- | -------------------- | ------------------------------------------------ | ----------- | -------------------- |
 | `1.0`  | 30/12/2024 | Criação do documento | [Lucas Spinosa](https://github.com/LucasSpinosa) | --- | --- |
 | `1.1`  | 31/12/2024 | Adição do código de exemplo | [Eduardo Belarmino](https://github.com/eduard0803) | --- | --- |
+| `1.2`  | 02/01/2025 | Edição do código de exemplo | [Eduardo Belarmino](https://github.com/eduard0803) | --- | --- |
