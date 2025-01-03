@@ -65,7 +65,7 @@ Segundo Refactoring Guru (2024), as desvantagens são:
 
 ## Aplicação
 
-<!-- A aplicação do padrão de projeto em questão se deu em duas etapas: criação do diagrama e desenvolvimento do código. Cada etapa pode ser conferida em detalhes a seguir. -->
+A aplicação do padrão de projeto levou em conta o cenário de uso da conexão a um banco de dados no brechó. Foi elaborado um diagrama da classe e o desenvolvimento do código. Cada etapa pode ser conferida a seguir.
 
 ### Elaboração do Diagrama
 
@@ -101,7 +101,7 @@ As estruturas, conforme definido no tópico [Estrutura](#estrutura), são aplica
 
 ### Desenvolvimento do Código
 
-O desenvolvimento do código para a aplicação prática do padrão de projeto *Singleton* foi feito de acordo com a [estrutura](#estrutura) apresentada, foram feitas modificações para se adequar as convenções da linguagem. Foi utilizada a linguagem de programação Python e para executá-lo, deve-se seguir os passos a seguir:
+O desenvolvimento do código para a aplicação prática do padrão de projeto *Singleton* foi feito de acordo com a [estrutura](#estrutura) apresentada. Foi utilizada a linguagem de programação Python e para executar o código, deve-se seguir os passos a seguir:
 
 1. Entrar na pasta `code/singleton/`
 
@@ -114,7 +114,7 @@ O resultado da execução dos comandos acima deve ser uma saída contendo três 
 <center>
 <figcaption>
 
-**Figura 2** - Resultado da execução do script.
+**Figura 3** - Resultado da execução do script.
 
 </figcaption>
 </center>
@@ -126,52 +126,12 @@ O resultado da execução dos comandos acima deve ser uma saída contendo três 
 
 **Fonte:** <a href="https://github.com/eduard0803" target="_blank">Eduardo Belarmino</a>, 2025.
 
-**Script 1** - Classe referente ao padrão singleton para estabelecer uma conexão com o banco de dados.
+**Figura 4** - Classe referente ao padrão singleton para estabelecer uma conexão com o banco de dados.
 
 </figcaption>
 </center>
 
-```python
-import os
-
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
-
-
-DB_USER = os.getenv("DB_USER")
-DB_PASS = os.getenv("DB_PASS")
-DB_HOST = os.getenv("DB_HOST")
-DB_PORT = os.getenv("DB_PORT")
-DB_BASE = os.getenv("DB_BASE")
-
-SQLALCHEMY_DATABASE_URL = f"postgresql://{DB_USER}:{DB_PASS}@{DB_HOST}:{DB_PORT}/{DB_BASE}"
-
-
-class Connect_DB:
-    __engine = create_engine( 
-        SQLALCHEMY_DATABASE_URL,
-        connect_args={
-            "options" : "-c timezone=utc"
-        }
-    )
-
-    __session_local = sessionmaker(autocommit=False, autoflush=False, bind=__engine)
-
-    __base = declarative_base()
-    __instance = __session_local()
-
-    def __new__(cls):
-        if cls.__instance is None:
-            cls.__instance = super(Connect_DB, cls).__new__(cls)
-        return cls.__instance
-
-    @classmethod
-    def get_instance(cls):
-        if cls.__instance is None:
-            cls.__instance = cls()
-        return cls.__instance
-```
+![Classe Singleton](../Images/classe_singleton.jpg)
 <center>
 <figcaption>
 
@@ -183,109 +143,20 @@ class Connect_DB:
 <center>
 <figcaption>
 
-**Script 2** - Criação dos objetos para a prova de conceito.
+**Figura 5** - Criação dos objetos para a prova de conceito.
 
 </figcaption>
 </center>
 
-```python
-from connect_db import Connect_DB
-
-
-if __name__ == "__main__":
-
-    db1 = Connect_DB.get_instance()
-    db2 = Connect_DB()
-    db3 = Connect_DB.get_instance()
-
-    print("\nSINGLETON")
-    print(db1 is db2)
-    print(db1 is db3)
-    print(db2 is db3)
-```
 <center>
 <figcaption>
+
+![Criação dos Objetos Singleton](../Images/objetos_singleton.png)
 
 **Fonte:** <a href="https://github.com/eduard0803" target="_blank">Eduardo Belarmino</a>, 2025.
 
 </figcaption>
 </center>
-
-<!-- O desenvolvimento do código para aplicação prática do padrão de projeto *Builder* foi feito de acordo com o [Diagrama](#elaboração-do-diagrama) apresentado. Foi utilizada a linguagem de programação Typescript e, para executá-lo, deve-se seguir os passos a seguir:
-
-1. Entrar na pasta code/builder/src
-
-2. Ter instalado o npm (comando: *npm install*)
-
-3. Executar o projeto com o comando *npm run start*
-
-O resultado da execução dos comandos acima deve ser uma saída contendo a representação dos produtos criados, cada um com suas distintas características.
-
-Para fins de visualização sem execução de código ou utilização de linhas de comando, confira as Figuras de 2 a 5 abaixo.
-
-<center>
-<figcaption> 
-
-**Figura 2** - Classes referentes a *Products*.
-
-</figcaption>
-
-![Products](../Images/productsBuilder.png)
-
-<figcaption>
-
-**Fonte:** <a href="https://github.com/marrcelo" target="_blank">Marcelo Magalhães</a>, 2024.
-
-</figcaption>
-</center>
-
-<center>
-<figcaption> 
-
-**Figura 3** - Classes referentes a *Builders*.
-
-</figcaption>
-
-![Builders](../Images/buildersBuilder.png)
-
-<figcaption>
-
-**Fonte:** <a href="https://github.com/marrcelo" target="_blank">Marcelo Magalhães</a>, 2024.
-
-</figcaption>
-</center>
-
-<center>
-<figcaption> 
-
-**Figura 4** - Classe referente a *Director*.
-
-</figcaption>
-
-![Director](../Images/directorBuilder.png)
-
-<figcaption>
-
-**Fonte:** <a href="https://github.com/marrcelo" target="_blank">Marcelo Magalhães</a>, 2024.
-
-</figcaption>
-</center>
-
-<center>
-<figcaption> 
-
-**Figura 5** - Main.
-
-</figcaption>
-
-![Main](../Images/mainBuilder.png)
-
-<figcaption>
-
-**Fonte:** <a href="https://github.com/marrcelo" target="_blank">Marcelo Magalhães</a>, 2024.
-
-</figcaption>
-</center> -->
 
 ## Referências
 
@@ -302,3 +173,4 @@ Para fins de visualização sem execução de código ou utilização de linhas 
 | `1.0`  | 30/12/2024 | Criação do documento | [Lucas Spinosa](https://github.com/LucasSpinosa) | --- | --- |
 | `1.1`  | 31/12/2024 | Adição do código de exemplo | [Eduardo Belarmino](https://github.com/eduard0803) | --- | --- |
 | `1.2`  | 02/01/2025 | Edição do código de exemplo | [Eduardo Belarmino](https://github.com/eduard0803) | --- | --- |
+| `1.3`  | 03/01/2025 | Edição do texto de Desenvolvimento do Código | [Lucas Spinosa](https://github.com/LucasSpinosa) | --- | --- |
