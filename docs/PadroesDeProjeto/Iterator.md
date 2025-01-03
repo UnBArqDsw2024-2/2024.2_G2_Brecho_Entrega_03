@@ -6,19 +6,11 @@ O padrão de projeto *Iterator* é um dos padrões comportamentais definidos pel
 
 ## Definição e Propósito
 
-O *Iterator* tem como objetivo fornecer uma maneira de acessar os elementos de uma coleção sequencialmente, sem expor sua estrutura interna. isso é útil em situações onde se deseja percorrer diferentes estruturas de dados, como listas, árvores ou filas, de forma uniforme.
+O *Iterator* tem como objetivo fornecer uma maneira de acessar os elementos de uma coleção sequencialmente, sem expor sua estrutura interna. Isso é útil em situações onde se deseja percorrer diferentes estruturas de dados, como listas, árvores ou filas, de forma uniforme.
 
 O *Iterator* é similar ao conceito de ponteiros ou índices em estruturas de dados, no sentido de navegar por seus elementos. Entretanto, uma vantagem do *Iterator* em relação a eles é a abstração, permitindo que o código que consome a coleção seja desacoplado de sua implementação.
 
 O *Iterator* é um padrão já implementado por determinadas linguagens de programação. Os iteradores do Python e Java são exemplos do padrão *Iterator*, de forma que métodos como `__iter__` e `next` ou interfaces como `Iterator` permitem percorrer coleções de maneira padronizada.
-
-<center>
-<figcaption>
-
-**Fonte:** <a href="https://github.com/eduard0803" target="_blank">Eduardo Belarmino</a>, 2025.
-
-</figcaption>
-</center>
 
 ## Estrutura
 
@@ -42,7 +34,7 @@ A estrutura de uma classe Iterator tem:
 
 </figcaption>
 
-![Diagrama de uma classe iterator](../Images/diagrama-iterator.png)
+![Diagrama de uma classe iterator](../Images/iterator/diagrama-iterator.png)
 
 <figcaption>
 
@@ -70,7 +62,7 @@ A estrutura de uma classe Iterator tem:
 
 ## Aplicação
 
-<!-- A aplicação do padrão de projeto em questão se deu em duas etapas: criação do diagrama e desenvolvimento do código. Cada etapa pode ser conferida em detalhes a seguir. -->
+A aplicação do padrão de projeto em questão se deu em duas etapas: criação do diagrama e desenvolvimento do código. Cada etapa pode ser conferida em detalhes a seguir.
 
 ### Elaboração do Diagrama
 
@@ -106,30 +98,32 @@ As estruturas, conforme definido no tópico [Estrutura](#estrutura), são aplica
 
 ### Desenvolvimento do Código
 
-<!-- O desenvolvimento do código para aplicação prática do padrão de projeto *Builder* foi feito de acordo com o [Diagrama](#elaboração-do-diagrama) apresentado. Foi utilizada a linguagem de programação Typescript e, para executá-lo, deve-se seguir os passos a seguir:
+O desenvolvimento do código para aplicação prática do padrão de projeto *Iterator* foi feito de acordo com o [Diagrama](#elaboração-do-diagrama) apresentado. Foi utilizada a linguagem de programação Typescript e, para executá-lo, deve-se seguir os passos a seguir:
 
-1. Entrar na pasta code/builder/src
+1. Entrar na pasta code/iterator/src
 
 2. Ter instalado o npm (comando: *npm install*)
 
 3. Executar o projeto com o comando *npm run start*
 
-O resultado da execução dos comandos acima deve ser uma saída contendo a representação dos produtos criados, cada um com suas distintas características.
+O padrão foi aplicado no cenário de uso de iterar sobre os produtos de um carrinho de compras com alguns produtos de diferentes formas: uma iteração sem critério, outra de forma crescente e outra de forma decrescente.
+
+O resultado da execução dos comandos acima deve ser uma saída contendo a impressão dos produtos do carrinho, de diferentes formas.
 
 Para fins de visualização sem execução de código ou utilização de linhas de comando, confira as Figuras de 2 a 5 abaixo.
 
 <center>
 <figcaption> 
 
-**Figura 2** - Classes referentes a *Products*.
+**Figura 2** - Interface referentes a *Iterator*.
 
 </figcaption>
 
-![Products](../Images/productsBuilder.png)
+![Iterator](../Images/iterator/iterator.png)
 
 <figcaption>
 
-**Fonte:** <a href="https://github.com/marrcelo" target="_blank">Marcelo Magalhães</a>, 2024.
+**Fonte:** <a href="https://github.com/LucasSpinosa" target="_blank">Lucas Spinosa</a>, 2025.
 
 </figcaption>
 </center>
@@ -137,15 +131,15 @@ Para fins de visualização sem execução de código ou utilização de linhas 
 <center>
 <figcaption> 
 
-**Figura 3** - Classes referentes a *Builders*.
+**Figura 3** - Classes referentes a *Concrete Iterators*.
 
 </figcaption>
 
-![Builders](../Images/buildersBuilder.png)
+![Concrete Iterators](../Images/iterator/concreteIterators.jpg)
 
 <figcaption>
 
-**Fonte:** <a href="https://github.com/marrcelo" target="_blank">Marcelo Magalhães</a>, 2024.
+**Fonte:** <a href="https://github.com/LucasSpinosa" target="_blank">Lucas Spinosa</a>, 2025.
 
 </figcaption>
 </center>
@@ -153,15 +147,15 @@ Para fins de visualização sem execução de código ou utilização de linhas 
 <center>
 <figcaption> 
 
-**Figura 4** - Classe referente a *Director*.
+**Figura 4** - Classe auxiliar *Product*.
 
 </figcaption>
 
-![Director](../Images/directorBuilder.png)
+![Product](../Images/iterator/product.png)
 
 <figcaption>
 
-**Fonte:** <a href="https://github.com/marrcelo" target="_blank">Marcelo Magalhães</a>, 2024.
+**Fonte:** <a href="https://github.com/LucasSpinosa" target="_blank">Lucas Spinosa</a>, 2025.
 
 </figcaption>
 </center>
@@ -169,18 +163,66 @@ Para fins de visualização sem execução de código ou utilização de linhas 
 <center>
 <figcaption> 
 
-**Figura 5** - Main.
+**Figura 5** - Interface referente a *Collection*.
 
 </figcaption>
 
-![Main](../Images/mainBuilder.png)
+![Collection](../Images/iterator/collection.png)
 
 <figcaption>
 
-**Fonte:** <a href="https://github.com/marrcelo" target="_blank">Marcelo Magalhães</a>, 2024.
+**Fonte:** <a href="https://github.com/LucasSpinosa" target="_blank">Lucas Spinosa</a>, 2025.
 
 </figcaption>
-</center> -->
+</center>
+
+<center>
+<figcaption> 
+
+**Figura 6** - Classe referente a *Concrete Collection*.
+
+</figcaption>
+
+![Concrete Collection](../Images/iterator/concreteCollection.png)
+
+<figcaption>
+
+**Fonte:** <a href="https://github.com/LucasSpinosa" target="_blank">Lucas Spinosa</a>, 2025.
+
+</figcaption>
+</center>
+
+<center>
+<figcaption> 
+
+**Figura 7** - Main.
+
+</figcaption>
+
+![Main](../Images/iterator/main.png)
+
+<figcaption>
+
+**Fonte:** <a href="https://github.com/LucasSpinosa" target="_blank">Lucas Spinosa</a>, 2025.
+
+</figcaption>
+</center>
+
+<center>
+<figcaption> 
+
+**Figura 8** - Resultado.
+
+</figcaption>
+
+![Resultado](../Images/iterator/resultado.png)
+
+<figcaption>
+
+**Fonte:** <a href="https://github.com/LucasSpinosa" target="_blank">Lucas Spinosa</a>, 2025.
+
+</figcaption>
+</center>
 
 ## Referências
 
@@ -193,3 +235,4 @@ Para fins de visualização sem execução de código ou utilização de linhas 
 | Versão | Data       | Descrição            | Autor(es)                                        | Revisor(es) | Resultado da Revisão |
 | ------ | ---------- | -------------------- | ------------------------------------------------ | ----------- | -------------------- |
 | `1.0`  | 02/01/2025 | Criação do documento | [Eduardo Belarmino](https://github.com/eduard0803) | --- | --- |
+| `1.1`  | 03/01/2025 | Adição da seção Desenvolvimento do Código | [Lucas Spinosa](https://github.com/LucasSpinosa) | --- | --- |
