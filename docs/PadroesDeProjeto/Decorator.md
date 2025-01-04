@@ -61,7 +61,7 @@ A organização do padrão *Decorator* é composta pelos seguintes elementos:
 
 A aplicação do padrão de projeto levou em conta o cenário de uso do controle de acesso no brechó. Foi elaborado um diagrama da classe e o desenvolvimento do código. Cada etapa pode ser conferida a seguir.
 
-### Elaboração do Diagrama
+<!-- ### Elaboração do Diagrama -->
 
 ### Desenvolvimento do Código
 
