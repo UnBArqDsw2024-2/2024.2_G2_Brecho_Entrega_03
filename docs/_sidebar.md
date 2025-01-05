@@ -11,6 +11,7 @@
     - [3.2. Padrões de Projeto GoFs Estruturais](/PadroesDeProjeto/3.2.GoFsEstruturais.md)
       - [3.2.1 Adapter](/PadroesDeProjeto/3.2.1.Adapter.md)
       - [3.2.2 Composite](/PadroesDeProjeto/3.2.2.Composite.md)
+      - [3.2.3 Proxy](/PadroesDeProjeto/3.2.4.proxy.md)
     - [3.3. Padrões de Projeto GoFs Comportamentais](/PadroesDeProjeto/3.3.GoFsComportamentais.md)
       - [3.3.1 Strategy](/PadroesDeProjeto/3.3.1.Strategy.md)
       - [3.3.2 Visitor](/PadroesDeProjeto/3.3.2.Visitor.md)
