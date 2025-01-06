@@ -25,7 +25,18 @@
 Esse documento se refere à Entrega 3 da disciplina Arquitetura e Desenho de Software, ministrada pela professora Milene Serrano. A entrega em questão é composta por aplicação de padrões de projeto criacionais, estruturais e comportamentais em cenários de uso dentro do contexto do projeto do grupo: um brechó online (UnBrechó).
 
 ## Screenshots da Terceira Entrega
-Adicione 2 ou mais screenshots em termos de artefatos realizados na entrega.
+
+<center>
+
+![Concrete Iterators](../Images/iterator/concreteIterators.jpg)
+
+</center>
+
+<center>
+
+![Diagrama do padrão de projeto builder](../Images/diagramaBuilder.png)
+
+</center>
 
 ## Há algo a ser executado?
 
@@ -36,6 +47,3 @@ Adicione 2 ou mais screenshots em termos de artefatos realizados na entrega.
 Cada padrão de projeto presente na documentação dessa entrega possui um código referente. Os códigos são independentes entre si e representam casos de uso fictícios, criados dentro do tema do projeto: UnBrechó.
 
 Instruções sobre a execução do código, assim como informações relevantes e descrição sobre o mesmo podem ser encontrados nos documentos referentes a cada padrão de projeto. Os códigos se encontram na pasta code, disponível no repositório do trabalho no GitHub. Acesse-o clicando [aqui](https://github.com/UnBArqDsw2024-2/2024.2_G2_Brecho_Entrega_03/tree/main).
-
-## Informações Complementares 
-Quaisquer outras informações adicionais podem ser descritas nessa seção.
