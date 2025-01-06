@@ -1,0 +1,10 @@
+{
+    "name": "decorator-pattern",
+    "version": "1.0.0",
+    "description": "Exemplo do padrão Decorator com JavaScript",
+    "main": "src/main.js",
+    "scripts": {
+      "start": "node src/main.js"
+    }
+  }
+  
