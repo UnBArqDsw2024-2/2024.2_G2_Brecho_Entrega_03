@@ -8,6 +8,7 @@
     - [3.1. Padrões de Projeto GoFs Criacionais](/PadroesDeProjeto/3.1.GoFsCriacionais.md)
       - [3.1.1 Builder](/PadroesDeProjeto/3.1.1.Builder.md)
       - [3.1.2 Prototype](/PadroesDeProjeto/3.2.3.prototype.md)
+      - [3.1.3 Singleton](/PadroesDeProjeto/3.1.3Singleton.md)
     - [3.2. Padrões de Projeto GoFs Estruturais](/PadroesDeProjeto/3.2.GoFsEstruturais.md)
       - [3.2.1 Adapter](/PadroesDeProjeto/3.2.1.Adapter.md)
       - [3.2.2 Composite](/PadroesDeProjeto/3.2.2.Composite.md)

@@ -1,0 +1,44 @@
+services:
+  connector:
+    build: .
+    hostname: singleton
+    depends_on:
+      db:
+        condition: service_healthy
+    env_file:
+      - .env
+    networks:
+      - singleton_network
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  db:
+    image: postgres
+    hostname: singleton_db
+    ports:
+      - "5433:5432"
+    env_file:
+      - .env
+    volumes:
+      - singleton_db:/var/lib/postgresql/data
+    restart: always
+    healthcheck:
+      test: pg_isready -U ${DB_USER} -d ${DB_BASE}
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    networks:
+      - singleton_network
+
+volumes:
+  singleton_db:
+    name: singleton_db
+
+
+networks:
+  singleton_network:
+    external: true
+    driver: 'bridge'
