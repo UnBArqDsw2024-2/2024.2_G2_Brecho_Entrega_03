@@ -9,7 +9,7 @@
       - [3.1.1 Builder](/PadroesDeProjeto/3.1.1.Builder.md)
     - [3.2. Padrões de Projeto GoFs Estruturais](/PadroesDeProjeto/3.2.GoFsEstruturais.md)
     - [3.3. Padrões de Projeto GoFs Comportamentais](/PadroesDeProjeto/3.3.GoFsComportamentais.md)
-      - [Iterator](/PadroesDeProjeto/Iterator.md)
+      - [3.3.5 Iterator](/PadroesDeProjeto/3.3.5Iterator.md)
     - [3.4. Participações - Padrões de Projeto](/PadroesDeProjeto/3.4.ParticipacoesPadroes.md)
     - [3.5. Iniciativas Extras - Padrões de Projeto](/PadroesDeProjeto/3.5.IniciativasExtras.md)
       
